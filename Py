@@ -1,0 +1,11 @@
+from flask import Flask, request, jsonify
+app = Flask(__name__)
+@app.route('/enviar_dados', methods=['POST'])
+def receber_dados():
+    data = request.json.get('data')
+    # Faça o que for necessário com os dados recebidos (por exemplo, salvar no banco de dados)
+    print("Dados recebidos:", data)
+    # Retornar uma resposta para a interface
+    return jsonify({'satatus': 'sucess', 'message': 'Dados recebidos com sucesso'})
+if __name__ == '__main__':
+    app.run(debug=True)
